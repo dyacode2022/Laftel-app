@@ -1,2 +1,2 @@
 # Laftel-app
-with electron.js
+Unofficial Laftel App
