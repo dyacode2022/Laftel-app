@@ -1,0 +1,30 @@
+{
+  "name": "laftel-app",
+  "version": "1.0.0",
+  "main": "build/app.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^16.0.6",
+    "electron-builder": "^22.14.5",
+    "path": "^0.12.7",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "build": "tsc && copyfiles -f ./src/index.html build && copyfiles ./assets/laftel.ico build",
+    "start": "yarn build && cross-env DEBUG=true electron .",
+    "deploy:win-x64": "electron-builder --win --x64"
+  },
+  "build": {
+    "productName": "laftel-app",
+    "asar": true,
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": { "onClick": true }
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "ts-node": "^10.4.0"
+  }
+}
